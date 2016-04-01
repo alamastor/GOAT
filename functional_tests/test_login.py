@@ -34,6 +34,8 @@ class LoginTest(FunctionalTest):
 
         # Terrified of this new feature, she reflexively clicks "logout"
         self.browser.find_element_by_id('id_logout').click()
+        # seems to require 2 clicks to work on server
+        self.browser.find_element_by_id('id_logout').click()
         self.wait_to_be_logged_out(email=TEST_EMAIL)
 
         # The "logged out" status also persists after a refresh

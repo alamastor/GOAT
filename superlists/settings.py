@@ -25,7 +25,10 @@ SECRET_KEY = '6t19wj!0it4&o=u)2d8bl-k2twvpe)5ac!yq(vytq+%yr%zni2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# This setting is changed by the deply script
+DOMAIN = "localhost"
+
+ALLOWED_HOSTS = [DOMAIN]
 
 
 # Application definition

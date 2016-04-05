@@ -28,7 +28,7 @@ class MyListsTest(FunctionalTest):
         self.browser.get(self.server_url)
         self.get_item_input_box().send_keys('Reticulate splines\n')
         self.get_item_input_box().send_keys('Immanenteze eschation\n')
-        fist_list_url = self.browser.current_url
+        first_list_url = self.browser.current_url
 
         # She notices a "My lists" link, for the first time.
         self.browser.find_element_by_link_text('My lists').click()
@@ -49,7 +49,9 @@ class MyListsTest(FunctionalTest):
         self.assertEqual(self.browser.current_url, second_list_url)
 
         # She logs out. The "My lists" option disappears
-        self.browser.find_element_by_id('id_logout').click()
+        logout_link = self.browser.find_element_by_id('id_logout')
+        logout_link.click()
+        self.wait_to_be_logged_out()
         self.assertEqual(
             self.browser.find_elements_by_link_text('My lists'),
             []

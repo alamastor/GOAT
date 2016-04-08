@@ -46,6 +46,10 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     def wait_for_element_with_id(self, element_id):
         WebDriverWait(self.browser, timeout=30).until(
+            lambda b: b.find_element_by_tag_name('body'),
+            'Could not find body element.')
+        body = self.browser.find_element_by_tag_name('body')
+        WebDriverWait(self.browser, timeout=30).until(
             lambda b: b.find_element_by_id(element_id),
             'Could not find element with id {}. Page text was:\n{}'.format(
                 element_id, self.browser.find_element_by_tag_name('body').text

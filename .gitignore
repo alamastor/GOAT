@@ -2,3 +2,5 @@ db.sqlite3
 __pycache__
 *.pyc
 *.swp
+functional_tests/screendumps
+.DS_Store
